@@ -8,6 +8,7 @@ on:
     # HACS and hassfest rules change independently of this repo, so re-run weekly.
     - cron: "0 4 * * 1"
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   hassfest:
