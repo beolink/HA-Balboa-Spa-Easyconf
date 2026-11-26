@@ -1,0 +1,17 @@
+{
+  "domain": "balboa_easyconf",
+  "name": "Balboa Spa Easyconf",
+  "codeowners": ["@beolink"],
+  "config_flow": true,
+  "dhcp": [
+    {"registered_devices": true},
+    {"macaddress": "001527*"}
+  ],
+  "documentation": "https://github.com/beolink/HA-Balboa-Spa-Easyconf",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/beolink/HA-Balboa-Spa-Easyconf/issues",
+  "loggers": ["pybalboa"],
+  "requirements": ["pybalboa>=1.1.3,<2"],
+  "version": "0.1.0"
+}

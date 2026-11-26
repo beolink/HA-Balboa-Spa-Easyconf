@@ -1,0 +1,310 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Balboa spa",
+        "description": "The address of the spa's Wi-Fi module (BWA). Found on the network: {found}\n\nThe module takes one connection at a time. First remove or disable Home Assistant's own Balboa integration for the same spa, and close other apps connected to it.",
+        "data": {
+          "host": "Host name or IP address"
+        },
+        "data_description": {
+          "host": "Such as 192.168.1.50. Add :port only if the module is reached on another port than 4257."
+        }
+      },
+      "confirm": {
+        "title": "Spa found",
+        "description": "There is a Balboa spa at {host}. Add it?"
+      },
+      "powers": {
+        "title": "What the parts draw",
+        "description": "{model} has these parts. Enter what each draws in watts while it runs: the spa's power and energy are worked out from which parts run at the moment. The suggestions are typical of a spa on 230 V; change them to what the rating plate says or what you have measured.\n\nPick a power meter that sees the spa (the house's consumption, one phase of it, or a metering plug) and the integration learns what each part draws: each time a part switches on or off while the rest of the spa stays as it is for 30 seconds before and after, the step on the meter is measured.",
+        "data": {
+          "power_heater": "Heater",
+          "power_pump_1": "Pump 1",
+          "power_pump_1_low": "Pump 1, low speed",
+          "power_pump_1_medium": "Pump 1, medium speed",
+          "power_pump_1_high": "Pump 1, high speed",
+          "power_pump_2": "Pump 2",
+          "power_pump_2_low": "Pump 2, low speed",
+          "power_pump_2_medium": "Pump 2, medium speed",
+          "power_pump_2_high": "Pump 2, high speed",
+          "power_pump_3": "Pump 3",
+          "power_pump_3_low": "Pump 3, low speed",
+          "power_pump_3_medium": "Pump 3, medium speed",
+          "power_pump_3_high": "Pump 3, high speed",
+          "power_pump_4": "Pump 4",
+          "power_pump_4_low": "Pump 4, low speed",
+          "power_pump_4_medium": "Pump 4, medium speed",
+          "power_pump_4_high": "Pump 4, high speed",
+          "power_pump_5": "Pump 5",
+          "power_pump_5_low": "Pump 5, low speed",
+          "power_pump_5_medium": "Pump 5, medium speed",
+          "power_pump_5_high": "Pump 5, high speed",
+          "power_pump_6": "Pump 6",
+          "power_pump_6_low": "Pump 6, low speed",
+          "power_pump_6_medium": "Pump 6, medium speed",
+          "power_pump_6_high": "Pump 6, high speed",
+          "power_pump_7": "Pump 7",
+          "power_pump_7_low": "Pump 7, low speed",
+          "power_pump_7_medium": "Pump 7, medium speed",
+          "power_pump_7_high": "Pump 7, high speed",
+          "power_pump_8": "Pump 8",
+          "power_pump_8_low": "Pump 8, low speed",
+          "power_pump_8_medium": "Pump 8, medium speed",
+          "power_pump_8_high": "Pump 8, high speed",
+          "power_blower_1": "Blower 1",
+          "power_blower_1_low": "Blower 1, low speed",
+          "power_blower_1_medium": "Blower 1, medium speed",
+          "power_blower_1_high": "Blower 1, high speed",
+          "power_blower_2": "Blower 2",
+          "power_blower_2_low": "Blower 2, low speed",
+          "power_blower_2_medium": "Blower 2, medium speed",
+          "power_blower_2_high": "Blower 2, high speed",
+          "power_circulation_pump": "Circulation pump",
+          "power_light_1": "Light 1",
+          "power_light_2": "Light 2",
+          "power_light_3": "Light 3",
+          "power_light_4": "Light 4",
+          "power_aux_1": "Aux 1",
+          "power_aux_2": "Aux 2",
+          "power_aux_3": "Aux 3",
+          "power_aux_4": "Aux 4",
+          "power_mister_1": "Mister 1",
+          "power_mister_2": "Mister 2",
+          "power_mister_3": "Mister 3",
+          "power_standby": "Controller and Wi-Fi",
+          "reference_sensor": "Power meter to learn from",
+          "use_learned": "Use learned powers",
+          "sync_time": "Keep the spa's clock right"
+        },
+        "data_description": {
+          "reference_sensor": "A power sensor whose reading includes the spa. It should update at least every ten seconds.",
+          "use_learned": "Once a part has been measured three times, the median of the measurements replaces the figure above.",
+          "sync_time": "Sets the spa's clock from Home Assistant once an hour when it is more than a minute off. The filter cycles run by that clock."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No answer from the spa. The module takes one connection at a time: is Home Assistant's own Balboa integration or an app connected to it?",
+      "no_configuration": "The spa answered but did not send its configuration. Try again in a moment."
+    },
+    "abort": {
+      "already_configured": "The spa is already added."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Powers and learning",
+        "description": "{model} has these parts. Enter what each draws in watts while it runs: the spa's power and energy are worked out from which parts run at the moment. The suggestions are typical of a spa on 230 V; change them to what the rating plate says or what you have measured.\n\nPick a power meter that sees the spa (the house's consumption, one phase of it, or a metering plug) and the integration learns what each part draws: each time a part switches on or off while the rest of the spa stays as it is for 30 seconds before and after, the step on the meter is measured.",
+        "data": {
+          "power_heater": "Heater",
+          "power_pump_1": "Pump 1",
+          "power_pump_1_low": "Pump 1, low speed",
+          "power_pump_1_medium": "Pump 1, medium speed",
+          "power_pump_1_high": "Pump 1, high speed",
+          "power_pump_2": "Pump 2",
+          "power_pump_2_low": "Pump 2, low speed",
+          "power_pump_2_medium": "Pump 2, medium speed",
+          "power_pump_2_high": "Pump 2, high speed",
+          "power_pump_3": "Pump 3",
+          "power_pump_3_low": "Pump 3, low speed",
+          "power_pump_3_medium": "Pump 3, medium speed",
+          "power_pump_3_high": "Pump 3, high speed",
+          "power_pump_4": "Pump 4",
+          "power_pump_4_low": "Pump 4, low speed",
+          "power_pump_4_medium": "Pump 4, medium speed",
+          "power_pump_4_high": "Pump 4, high speed",
+          "power_pump_5": "Pump 5",
+          "power_pump_5_low": "Pump 5, low speed",
+          "power_pump_5_medium": "Pump 5, medium speed",
+          "power_pump_5_high": "Pump 5, high speed",
+          "power_pump_6": "Pump 6",
+          "power_pump_6_low": "Pump 6, low speed",
+          "power_pump_6_medium": "Pump 6, medium speed",
+          "power_pump_6_high": "Pump 6, high speed",
+          "power_pump_7": "Pump 7",
+          "power_pump_7_low": "Pump 7, low speed",
+          "power_pump_7_medium": "Pump 7, medium speed",
+          "power_pump_7_high": "Pump 7, high speed",
+          "power_pump_8": "Pump 8",
+          "power_pump_8_low": "Pump 8, low speed",
+          "power_pump_8_medium": "Pump 8, medium speed",
+          "power_pump_8_high": "Pump 8, high speed",
+          "power_blower_1": "Blower 1",
+          "power_blower_1_low": "Blower 1, low speed",
+          "power_blower_1_medium": "Blower 1, medium speed",
+          "power_blower_1_high": "Blower 1, high speed",
+          "power_blower_2": "Blower 2",
+          "power_blower_2_low": "Blower 2, low speed",
+          "power_blower_2_medium": "Blower 2, medium speed",
+          "power_blower_2_high": "Blower 2, high speed",
+          "power_circulation_pump": "Circulation pump",
+          "power_light_1": "Light 1",
+          "power_light_2": "Light 2",
+          "power_light_3": "Light 3",
+          "power_light_4": "Light 4",
+          "power_aux_1": "Aux 1",
+          "power_aux_2": "Aux 2",
+          "power_aux_3": "Aux 3",
+          "power_aux_4": "Aux 4",
+          "power_mister_1": "Mister 1",
+          "power_mister_2": "Mister 2",
+          "power_mister_3": "Mister 3",
+          "power_standby": "Controller and Wi-Fi",
+          "reference_sensor": "Power meter to learn from",
+          "use_learned": "Use learned powers",
+          "sync_time": "Keep the spa's clock right"
+        },
+        "data_description": {
+          "reference_sensor": "A power sensor whose reading includes the spa. It should update at least every ten seconds.",
+          "use_learned": "Once a part has been measured three times, the median of the measurements replaces the figure above.",
+          "sync_time": "Sets the spa's clock from Home Assistant once an hour when it is more than a minute off. The filter cycles run by that clock."
+        }
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "spa": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "ready": "Ready",
+              "rest": "Rest"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "pump": {
+        "name": "Pump{number}"
+      },
+      "blower": {
+        "name": "Blower{number}"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Light{number}"
+      }
+    },
+    "switch": {
+      "filter_cycle_2_enabled": {
+        "name": "Filter cycle 2 enabled"
+      },
+      "aux": {
+        "name": "Aux{number}"
+      },
+      "mister": {
+        "name": "Mister{number}"
+      }
+    },
+    "select": {
+      "heat_mode": {
+        "name": "Heat mode",
+        "state": {
+          "ready": "Ready",
+          "rest": "Rest"
+        }
+      },
+      "temperature_range": {
+        "name": "Temperature range",
+        "state": {
+          "low": "Low",
+          "high": "High"
+        }
+      }
+    },
+    "time": {
+      "filter_cycle_1_start": {
+        "name": "Filter cycle 1 start"
+      },
+      "filter_cycle_1_end": {
+        "name": "Filter cycle 1 end"
+      },
+      "filter_cycle_2_start": {
+        "name": "Filter cycle 2 start"
+      },
+      "filter_cycle_2_end": {
+        "name": "Filter cycle 2 end"
+      }
+    },
+    "binary_sensor": {
+      "heater": {
+        "name": "Heater"
+      },
+      "filter_cycle_1": {
+        "name": "Filter cycle 1"
+      },
+      "filter_cycle_2": {
+        "name": "Filter cycle 2"
+      },
+      "circulation_pump": {
+        "name": "Circulation pump"
+      }
+    },
+    "sensor": {
+      "water_temperature": {
+        "name": "Water temperature"
+      },
+      "heat_state": {
+        "name": "Heat",
+        "state": {
+          "off": "Off",
+          "heating": "Heating",
+          "heat_waiting": "Waiting"
+        }
+      },
+      "last_fault": {
+        "name": "Last fault",
+        "state": {
+          "clock_failed": "The clock has failed",
+          "flow_failed": "The water flow has failed",
+          "gfci_test_failed": "The GFCI test failed",
+          "heater_dry": "The heater is dry",
+          "heater_may_be_dry": "The heater may be dry",
+          "heater_too_hot": "The heater is too hot",
+          "hot_fault": "Hot fault",
+          "low_flow": "The water flow is low",
+          "memory_failure": "Program memory failure",
+          "priming_mode": "Priming mode",
+          "pump_stuck": "A pump may be stuck on",
+          "sensor_a_fault": "Sensor A fault",
+          "sensor_b_fault": "Sensor B fault",
+          "sensors_out_of_sync": "Sensors are out of sync",
+          "service_sensor_sync": "Sensors are out of sync, call for service",
+          "settings_reset": "The settings have been reset",
+          "standby_mode": "Standby (hold mode)",
+          "unknown": "Unknown fault",
+          "water_too_hot": "The water is too hot"
+        }
+      },
+      "power": {
+        "name": "Power"
+      },
+      "energy": {
+        "name": "Energy"
+      },
+      "part_power": {
+        "name": "{part} power"
+      },
+      "part_energy": {
+        "name": "{part} energy"
+      },
+      "learned_power": {
+        "name": "Learned power, {part}"
+      }
+    },
+    "button": {
+      "sync_clock": {
+        "name": "Set the clock"
+      },
+      "forget_learned": {
+        "name": "Forget learned powers"
+      }
+    }
+  }
+}
